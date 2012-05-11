@@ -12,14 +12,26 @@
 
 #include <sane/sane.h>
 
+@interface Scanner : NSObject
+{
+  NSString *name;
+  NSString *vendor;
+  NSString *model;
+  NSString *type;
+}
+
+- (id)initWithSANEDevice:(SANE_Device *)device;
+@end
+
+
 @interface ScannerController : NSObject
 {
   const SANE_Device **devices_list;
 }
 
+- (void)buildDeviceList;
 - (NSArray *)availableScanner;
 - (void)scanPage;
-
 @end
 
 #endif

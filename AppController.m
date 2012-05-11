@@ -49,6 +49,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotif
 {
   [NSBundle loadGSMarkupNamed: @"Main" owner: self];
+  [sctrl buildDeviceList];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(id)sender
