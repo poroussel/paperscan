@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE gsmarkup>
+<gsmarkup>
+  <objects>
+    <window id="mainWindow" minWidth="250" minHeight="300">
+      <vbox>
+	<hbox>
+	  <label textAlignment="right">Scanner :</label>
+	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="" halign="">
+	    <popUpButtonItem tag="0" title="Rdp version 5" />
+	    <popUpButtonItem tag="1" title="Rdp version 4" />
+	  </popUpButton>
+
+	  <label textAlignment="right">Resolution :</label>
+	  <popUpButton target="#NSOwner" action="" id="resolution" nextKeyView="" halign="">
+	    <popUpButtonItem tag="300" title="300dpi" />
+	    <popUpButtonItem tag="600" title="600dpi" />
+	  </popUpButton>
+	</hbox>
+      </vbox>
+    </window>
+  </objects>
+</gsmarkup>

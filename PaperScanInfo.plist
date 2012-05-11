@@ -1,0 +1,14 @@
+{
+    ApplicationDescription = "Image scanner";
+    ApplicationName = PaperScan;
+    ApplicationRelease = "0.1";
+    Authors = (
+	"Philippe Roussel <p.o.roussel@free.fr>"
+    );
+    Copyright = "Copyright (C) 2012";
+    CopyrightDescription = "Released under GPLv2 or later";
+    FullVersionID = "0.1";
+    NSExecutable = PaperScan;
+    NSPrincipalClass = AppController;
+    NSRole = Application;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE gsmarkup>
+
+<!-- Remove any menu items and submenus which you don't need.  Add any
+     menu items and submenus which you need.  -->
+
+<gsmarkup>
+  <objects>
+
+    <menu type="main">
+
+      <menu title="Info">
+	<menuItem title="Info Panel..." 
+		  action="orderFrontStandardInfoPanel:"/>
+	<menuItem title="Preferences..." action=""/>
+	<menuItem title="Help..." action="orderFrontHelpPanel:" keyEquivalent="?"/>
+      </menu>
+
+      <menu title="Windows">
+	<menuItem title="Arrange In Front" action="arrangeInFront:"/>
+	<menuItem title="Miniaturize Window" action="performMiniaturize:" keyEquivalent="m"/>
+	<menuItem title="Close Window" action="performClose:" keyEquivalent="w"/>
+      </menu>
+
+      <menu title="Services" type="services"/>
+
+      <menuItem title="Hide" action="hide:" keyEquivalent="h"/>
+      <menuItem title="Quit" action="terminate:" keyEquivalent="q"/>
+    </menu>
+  </objects>
+</gsmarkup>
