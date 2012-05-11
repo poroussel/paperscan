@@ -8,6 +8,8 @@
  * Application Controller
  */
 
+#import <AppKit/AppKit.h>
+#import <Renaissance/Renaissance.h>
 #import "AppController.h"
 
 @implementation AppController
@@ -31,12 +33,16 @@
 - (id)init
 {
   if ((self = [super init])) {
+    sctrl = [ScannerController new];
+    if (!sctrl)
+      DESTROY(self);
   }
   return self;
 }
 
 - (void)dealloc
 {
+  [sctrl release];
   [super dealloc];
 }
 

@@ -11,11 +11,11 @@
 #ifndef _PCAPPPROJ_APPCONTROLLER_H
 #define _PCAPPPROJ_APPCONTROLLER_H
 
-#import <AppKit/AppKit.h>
-#import <Renaissance/Renaissance.h>
+#import "ScannerController.h"
 
 @interface AppController : NSObject
 {
+  ScannerController *sctrl;
 }
 
 - (void)showPrefPanel:(id)sender;

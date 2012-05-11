@@ -26,3 +26,5 @@ ifeq ($(FOUNDATION_LIB), apple)
 else
   ADDITIONAL_GUI_LIBS += -lRenaissance
 endif
+
+ADDITIONAL_TOOL_LIBS = -lsane

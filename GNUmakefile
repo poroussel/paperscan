@@ -41,13 +41,15 @@ endif
 # Header files
 #
 PaperScan_HEADER_FILES = \
-AppController.h
+AppController.h \
+ScannerController.h
 
 #
 # Class files
 #
 PaperScan_OBJC_FILES = \
-AppController.m
+AppController.m \
+ScannerController.m
 
 #
 # Other sources
