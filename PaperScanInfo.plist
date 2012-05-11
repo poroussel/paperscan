@@ -1,5 +1,6 @@
 {
-    ApplicationDescription = "Image scanner";
+    ApplicationDescription = "Obvious image scanner based on SANE";
+    ApplicationIcon = PaperScan.png;
     ApplicationName = PaperScan;
     ApplicationRelease = "0.1";
     Authors = (
@@ -11,4 +12,5 @@
     NSExecutable = PaperScan;
     NSPrincipalClass = AppController;
     NSRole = Application;
+    NSIcon = PaperScan.png;
 }

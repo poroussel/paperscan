@@ -28,7 +28,8 @@ endif
 # Resource files
 #
 PaperScan_RESOURCE_FILES = \
-Resources/Main.gsmarkup
+Resources/Main.gsmarkup \
+Resources/PaperScan.png
 
 ifeq ($(FOUNDATION_LIB), apple)
 PaperScan_RESOURCE_FILES += Resources/MainMenu-OSX.gsmarkup
