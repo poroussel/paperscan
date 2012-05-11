@@ -18,10 +18,8 @@
 {
 }
 
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotif;
-- (BOOL)applicationShouldTerminate: (id)sender;
-- (void)applicationWillTerminate: (NSNotification *)aNotif;
-- (void)showPrefPanel: (id)sender;
+- (void)showPrefPanel:(id)sender;
+- (void)scanPage:(id)sender;
 
 @end
 

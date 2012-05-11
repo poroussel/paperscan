@@ -2,7 +2,7 @@
 <!DOCTYPE gsmarkup>
 <gsmarkup>
   <objects>
-    <window id="mainWindow" minWidth="250" minHeight="300">
+    <window id="mainWindow" minWidth="400" minHeight="400">
       <vbox>
 	<hbox>
 	  <label textAlignment="right">Scanner :</label>
@@ -16,6 +16,8 @@
 	    <popUpButtonItem tag="300" title="300dpi" />
 	    <popUpButtonItem tag="600" title="600dpi" />
 	  </popUpButton>
+
+	  <button title="Scan page" action="scanPage:" target="#NSOwner" />
 	</hbox>
       </vbox>
     </window>

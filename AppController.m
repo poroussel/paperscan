@@ -12,7 +12,7 @@
 
 @implementation AppController
 
-+ (void) initialize
++ (void)initialize
 {
   NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
 
@@ -28,36 +28,42 @@
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (id) init
+- (id)init
 {
   if ((self = [super init])) {
   }
   return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
   [super dealloc];
 }
 
-- (void) applicationDidFinishLaunching: (NSNotification *)aNotif
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotif
 {
-  NSLog(@"didFinish");
   [NSBundle loadGSMarkupNamed: @"Main" owner: self];
 }
 
-- (BOOL) applicationShouldTerminate: (id)sender
+- (NSApplicationTerminateReply)applicationShouldTerminate:(id)sender
 {
-  NSLog(@"should");
+  return NSTerminateNow;
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app
+{
   return YES;
 }
 
-- (void) applicationWillTerminate: (NSNotification *)aNotif
+- (void)applicationWillTerminate:(NSNotification *)aNotif
 {
-  NSLog(@"will");
 }
 
-- (void) showPrefPanel: (id)sender
+- (void)showPrefPanel:(id)sender
+{
+}
+
+- (void)scanPage:(id)sender
 {
 }
 
