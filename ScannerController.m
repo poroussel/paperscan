@@ -108,13 +108,13 @@ static NSMutableArray *devarray;
   device = devices_list;
   while (*device) {
     scan = [[Scanner alloc] initWithSANEDevice:(SANE_Device *)*device];
-    NSLog(@"Found %@", [scan description]);
     [devarray addObject:scan];
     [scan release];
     device++;
   }
   [devarrayLock unlock];
-  [self performSelectorOnMainThread:@selector(fillWithElements:) 
+  NSLog(@"Found %u device(s)", [devarray count]);
+  [self performSelectorOnMainThread:@selector(_notifyListBuilt:) 
 			 withObject:nil 
 		      waitUntilDone:NO];
 }
