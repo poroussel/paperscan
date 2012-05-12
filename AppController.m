@@ -42,13 +42,30 @@
 
 - (void)dealloc
 {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
   [sctrl release];
   [super dealloc];
+}
+
+- (void)deviceListUpdated:(NSNotification *)not
+{
+  NSArray *devices = [sctrl availableScanner];
+  NSEnumerator *e = [devices objectEnumerator];
+  Scanner *scanner;
+
+  [pubScanner removeAllItems];
+  while ((scanner = [e nextObject])) {
+    [pubScanner addItemWithTitle:[scanner model]];
+  }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotif
 {
   [NSBundle loadGSMarkupNamed: @"Main" owner: self];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+					   selector:@selector(deviceListUpdated:)
+					       name:PSDeviceListUpdated
+					     object:nil];
   [sctrl buildDeviceList];
 }
 

@@ -6,9 +6,7 @@
       <vbox>
 	<hbox>
 	  <label textAlignment="right">Scanner :</label>
-	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="" halign="">
-	    <popUpButtonItem tag="0" title="Rdp version 5" />
-	    <popUpButtonItem tag="1" title="Rdp version 4" />
+	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="" width="200">
 	  </popUpButton>
 
 	  <label textAlignment="right">Resolution :</label>
@@ -22,4 +20,9 @@
       </vbox>
     </window>
   </objects>
+
+  <!-- outlets -->
+  <connectors>
+    <outlet source="#NSOwner" target="#scanner" key="pubScanner" />
+  </connectors>
 </gsmarkup>

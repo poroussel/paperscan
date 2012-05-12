@@ -21,8 +21,13 @@
 }
 
 - (id)initWithSANEDevice:(SANE_Device *)device;
+- (NSString *)name;
+- (NSString *)vendor;
+- (NSString *)model;
+- (NSString *)type;
 @end
 
+extern NSString * const PSDeviceListUpdated;
 
 @interface ScannerController : NSObject
 {
