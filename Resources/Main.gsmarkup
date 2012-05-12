@@ -5,17 +5,17 @@
     <window id="mainWindow" minWidth="400" minHeight="400">
       <vbox>
 	<hbox>
-	  <label textAlignment="right">Scanner :</label>
-	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="" width="200">
+	  <label textAlignment="right">Source :</label>
+	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="#resolution" halign="expand">
+	    <popUpButtonItem tag="0" title="None" />
 	  </popUpButton>
 
 	  <label textAlignment="right">Resolution :</label>
-	  <popUpButton target="#NSOwner" action="" id="resolution" nextKeyView="" halign="">
-	    <popUpButtonItem tag="300" title="300dpi" />
-	    <popUpButtonItem tag="600" title="600dpi" />
+	  <popUpButton target="#NSOwner" action="" id="resolution" nextKeyView="#scanbt" halign="expand">
+	    <popUpButtonItem tag="0" title="None" />
 	  </popUpButton>
 
-	  <button title="Scan page" action="scanPage:" target="#NSOwner" />
+	  <button title=" Scan page " id="scanbt" action="scanPage:" target="#NSOwner" />
 	</hbox>
       </vbox>
     </window>
