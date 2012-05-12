@@ -31,7 +31,6 @@ extern NSString * const PSDeviceListUpdated;
 
 @interface ScannerController : NSObject
 {
-  const SANE_Device **devices_list;
 }
 
 - (void)buildDeviceList;

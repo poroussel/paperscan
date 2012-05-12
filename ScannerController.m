@@ -95,22 +95,21 @@ static NSMutableArray *devarray;
 - (void)_buildDeviceList:(id)argument
 {
   SANE_Status status;
-  const SANE_Device **device;
+  const SANE_Device **devices;
   Scanner *scan;
   
-  status = sane_get_devices(&devices_list, SANE_TRUE);
+  status = sane_get_devices(&devices, SANE_TRUE);
   if (status != SANE_STATUS_GOOD) {
     NSLog(@"Error while getting list of devices");
     return;
   }
   [devarrayLock lock];
   [devarray removeAllObjects];
-  device = devices_list;
-  while (*device) {
-    scan = [[Scanner alloc] initWithSANEDevice:(SANE_Device *)*device];
+  while (*devices) {
+    scan = [[Scanner alloc] initWithSANEDevice:(SANE_Device *)*devices];
     [devarray addObject:scan];
     [scan release];
-    device++;
+    devices++;
   }
   [devarrayLock unlock];
   NSLog(@"Found %u device(s)", [devarray count]);
