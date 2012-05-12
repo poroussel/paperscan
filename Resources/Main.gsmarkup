@@ -17,6 +17,8 @@
 
 	  <button title=" Scan page " id="scanbt" action="scanPage:" target="#NSOwner" />
 	</hbox>
+
+	<image id="image" halign="expand" valign="expand" frameStyle="photo" hasFrame="yes" />
       </vbox>
     </window>
   </objects>
@@ -24,5 +26,6 @@
   <!-- outlets -->
   <connectors>
     <outlet source="#NSOwner" target="#scanner" key="pubScanner" />
+    <outlet source="#NSOwner" target="#image" key="image" />
   </connectors>
 </gsmarkup>

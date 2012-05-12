@@ -16,6 +16,7 @@
 @interface AppController : NSObject
 {
   IBOutlet NSPopUpButton *pubScanner;
+  IBOutlet NSImage *image;
 
   ScannerController *sctrl;
 }

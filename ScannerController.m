@@ -67,7 +67,7 @@ static NSMutableArray *devarray;
   if ((self = [super init])) {
     status = sane_init(&version, NULL);
     if (status != SANE_STATUS_GOOD) {
-      NSLog(@"Unable to initialize sane");
+      NSLog(@"Unable to initialize sane : %s", sane_strstatus(status));
       DESTROY(self);
       return nil;
     }
@@ -100,7 +100,7 @@ static NSMutableArray *devarray;
   
   status = sane_get_devices(&devices, SANE_TRUE);
   if (status != SANE_STATUS_GOOD) {
-    NSLog(@"Error while getting list of devices");
+    NSLog(@"Error while getting list of devices : %s", sane_strstatus(status));
     return;
   }
   [devarrayLock lock];
