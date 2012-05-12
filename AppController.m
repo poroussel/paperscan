@@ -54,9 +54,15 @@
   Scanner *scanner;
 
   [pubScanner removeAllItems];
+  if ([devices count] == 0) {
+    [pubScanner addItemWithTitle:@"None"];
+    [btScan setEnabled:NO];
+    return;
+  }
   while ((scanner = [e nextObject])) {
     [pubScanner addItemWithTitle:[scanner model]];
   }
+  [self setScanner:pubScanner];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotif
@@ -84,6 +90,15 @@
 }
 
 - (void)showPrefPanel:(id)sender
+{
+}
+
+- (void)setScanner:(id)sender
+{
+  [btScan setEnabled:YES];
+}
+
+- (void)setResolution:(id)sender
 {
 }
 

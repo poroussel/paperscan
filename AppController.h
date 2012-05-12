@@ -17,12 +17,15 @@
 {
   IBOutlet NSPopUpButton *pubScanner;
   IBOutlet NSImage *image;
+  IBOutlet NSButton *btScan;
 
   ScannerController *sctrl;
 }
 
 - (void)showPrefPanel:(id)sender;
 - (void)scanPage:(id)sender;
+- (void)setScanner:(id)sender;
+- (void)setResolution:(id)sender;
 
 @end
 

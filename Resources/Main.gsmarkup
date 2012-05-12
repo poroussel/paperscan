@@ -6,16 +6,16 @@
       <vbox>
 	<hbox>
 	  <label textAlignment="right">Source :</label>
-	  <popUpButton target="#NSOwner" action="" id="scanner" nextKeyView="#resolution" halign="expand">
-	    <popUpButtonItem tag="0" title="None" />
+	  <popUpButton target="#NSOwner" action="setScanner:" id="scanner" nextKeyView="#resolution" halign="expand">
+	    <popUpButtonItem tag="-1" title="None" />
 	  </popUpButton>
 
 	  <label textAlignment="right">Resolution :</label>
-	  <popUpButton target="#NSOwner" action="" id="resolution" nextKeyView="#scanbt" halign="expand">
-	    <popUpButtonItem tag="0" title="None" />
+	  <popUpButton target="#NSOwner" action="setResolution:" id="resolution" nextKeyView="#scanbt" halign="expand">
+	    <popUpButtonItem tag="-1" title="None" />
 	  </popUpButton>
 
-	  <button title=" Scan page " action="scanPage:" target="#NSOwner" />
+	  <button title=" Scan page " enabled="no" id="scanbutton" action="scanPage:" target="#NSOwner" />
 	</hbox>
 
 	<image id="image" halign="expand" valign="expand" frameStyle="photo" hasFrame="yes" />
@@ -26,6 +26,7 @@
   <!-- outlets -->
   <connectors>
     <outlet source="#NSOwner" target="#scanner" key="pubScanner" />
+    <outlet source="#NSOwner" targer="#scanbutton" key="btScan" />
     <outlet source="#NSOwner" target="#image" key="image" />
   </connectors>
 </gsmarkup>
