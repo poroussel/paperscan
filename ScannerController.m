@@ -81,7 +81,7 @@ static NSMutableArray *devarray;
   }
   device = devices_list;
   while (*device) {
-    scan = [[Scanner alloc] initWithSANEDevice:(struct SANE_Device *)*device];
+    scan = [[Scanner alloc] initWithSANEDevice:(SANE_Device *)*device];
     NSLog(@"Found %@", [scan description]);
     [devarrayLock lock];
     [devarray addObject:scan];
