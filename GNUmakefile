@@ -16,12 +16,6 @@ include $(GNUSTEP_MAKEFILES)/common.make
 VERSION = 0.1
 PACKAGE_NAME = PaperScan
 APP_NAME = PaperScan
-PaperScan_APPLICATION_ICON = 
-ifeq ($(FOUNDATION_LIB), apple)
-PaperScan_MAIN_MARKUP_FILE = MainMenu-OSX.gsmarkup
-else
-PaperScan_MAIN_MARKUP_FILE = MainMenu-GNUstep.gsmarkup
-endif
 
 
 #
@@ -33,8 +27,10 @@ Resources/PaperScan.png
 
 ifeq ($(FOUNDATION_LIB), apple)
 PaperScan_RESOURCE_FILES += Resources/MainMenu-OSX.gsmarkup
+PaperScan_MAIN_MARKUP_FILE = MainMenu-OSX.gsmarkup
 else
 PaperScan_RESOURCE_FILES += Resources/MainMenu-GNUstep.gsmarkup
+PaperScan_MAIN_MARKUP_FILE = MainMenu-GNUstep.gsmarkup
 endif
 
 
