@@ -89,6 +89,7 @@
 
 - (void)scanPage:(id)sender
 {
+  [sctrl scanPage];
 }
 
 @end

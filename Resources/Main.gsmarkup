@@ -15,7 +15,7 @@
 	    <popUpButtonItem tag="0" title="None" />
 	  </popUpButton>
 
-	  <button title=" Scan page " id="scanbt" action="scanPage:" target="#NSOwner" />
+	  <button title=" Scan page " action="scanPage:" target="#NSOwner" />
 	</hbox>
 
 	<image id="image" halign="expand" valign="expand" frameStyle="photo" hasFrame="yes" />

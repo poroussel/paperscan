@@ -137,6 +137,40 @@ static NSMutableArray *devarray;
 
 - (void)scanPage
 {
+  SANE_Status status;
+  SANE_Handle handle;
+  SANE_Parameters params;
+  Scanner *scanner;
+
+  scanner = [devarray lastObject];
+  if (!scanner)
+    return;
+  status = sane_open([[scanner name] cString], &handle);
+  if (status != SANE_STATUS_GOOD) {
+    NSLog(@"Error opening device : %s", sane_strstatus(status));
+    return;
+  }
+  status = sane_start(handle);
+  if (status != SANE_STATUS_GOOD) {
+    NSLog(@"Error starting device : %s", sane_strstatus(status));
+    sane_close(handle);
+    return;
+  }
+  status = sane_get_parameters(handle, &params);
+  if (status != SANE_STATUS_GOOD) {
+    NSLog(@"Error getting device parameters: %s", sane_strstatus(status));
+    sane_cancel(handle);
+    sane_close(handle);
+    return;
+  }
+  NSLog(@"%d %d %d %d", params.bytes_per_line, params.pixels_per_line, params.lines, params.depth);
+  /*
+  while (status != SANE_STATUS_EOF) {
+    status = sane_read();
+  }
+  */
+  sane_cancel(handle);
+  sane_close(handle);
 }
 
 @end
