@@ -26,7 +26,7 @@
   <!-- outlets -->
   <connectors>
     <outlet source="#NSOwner" target="#scanner" key="pubScanner" />
-    <outlet source="#NSOwner" targer="#scanbutton" key="btScan" />
+    <outlet source="#NSOwner" target="#scanbutton" key="btScan" />
     <outlet source="#NSOwner" target="#image" key="image" />
   </connectors>
 </gsmarkup>
