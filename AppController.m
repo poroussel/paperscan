@@ -96,6 +96,7 @@
 - (void)setScanner:(id)sender
 {
   [btScan setEnabled:YES];
+  [[[sctrl availableScanner] lastObject] readOptions];
 }
 
 - (void)setResolution:(id)sender

@@ -18,13 +18,16 @@
   NSString *vendor;
   NSString *model;
   NSString *type;
+  BOOL open;
+  SANE_Handle handle;
 }
 
 - (id)initWithSANEDevice:(SANE_Device *)device;
-- (NSString *)name;
-- (NSString *)vendor;
 - (NSString *)model;
-- (NSString *)type;
+- (BOOL)openDevice;
+- (void)closeDevice;
+- (BOOL)isOpen;
+- (void)readOptions;
 @end
 
 extern NSString * const PSDeviceListUpdated;

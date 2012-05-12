@@ -18,6 +18,7 @@
     vendor = [[NSString alloc] initWithCString:device->vendor];
     model = [[NSString alloc] initWithCString:device->model];
     type = [[NSString alloc] initWithCString:device->type];
+    open = NO;
   }
   return self;
 }
@@ -35,21 +36,87 @@
 {
   return model;
 }
-- (NSString *)name
-{
-  return name;
-}
-- (NSString *)vendor
-{
-  return vendor;
-}
 - (NSString *)model
 {
   return model;
 }
-- (NSString *)type
+- (NSString *)name
 {
-  return type;
+  return name;
+}
+
+- (BOOL)openDevice
+{
+  SANE_Status status;
+ 
+  if (open == YES) {
+    NSLog(@"Device already opened");
+    return YES;
+  }
+  status = sane_open([name cString], &handle);
+  if (status != SANE_STATUS_GOOD) {
+    NSLog(@"Error opening device : %s", sane_strstatus(status));
+    open = NO;
+  } else {
+    open = YES;
+  }
+  return open;
+}
+
+- (void)closeDevice
+{
+  if (open == YES) {
+    sane_cancel(handle);
+    sane_close(handle);
+    open = NO;
+  }
+}
+
+- (BOOL)isOpen
+{
+  return open;
+}
+
+static char *sane_value_type[] = {
+  "Bool",
+  "Int",
+  "Fixed",
+  "String",
+  "Button",
+  "Group"
+};
+
+- (void)readOptions
+{
+  const SANE_Option_Descriptor *odr;
+  SANE_Int index;
+
+  if ([self openDevice]) {
+    index = 0;
+    while ((odr = sane_get_option_descriptor(handle, index))) {
+      index++;
+
+      if (!odr->name)
+	continue;
+
+      NSLog(@"%s | %s | %s", odr->name, odr->title, odr->desc);
+
+      if (!strcmp(odr->name, "resolution")) {
+	NSLog(@"Type : %s", sane_value_type[odr->type]);
+	switch (odr->constraint_type) {
+	case SANE_CONSTRAINT_RANGE:
+	  NSLog(@" min %d max %d quant %d", odr->constraint.range->min, odr->constraint.range->max, odr->constraint.range->quant);
+	  break;
+	case SANE_CONSTRAINT_WORD_LIST:
+	  NSLog(@"Word list");
+	  break;
+	default:
+	  NSLog(@"Other constraint");
+	}
+      }
+    }
+    [self closeDevice];
+  }
 }
 @end
 
