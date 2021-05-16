@@ -179,7 +179,7 @@ static NSMutableArray *devarray;
     devices++;
   }
   [devarrayLock unlock];
-  NSLog(@"Found %u device(s)", [devarray count]);
+  NSLog(@"Found %lu device(s)", [devarray count]);
   [self performSelectorOnMainThread:@selector(_notifyListBuilt:) 
 			 withObject:nil 
 		      waitUntilDone:NO];
